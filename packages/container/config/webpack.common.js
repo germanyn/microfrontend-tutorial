@@ -1,4 +1,5 @@
 // @ts-check
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 /**
  * @type {import('webpack').Configuration}
@@ -19,6 +20,11 @@ const configuration = {
             },
         ],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html'
+        }),
+    ],
 }
 
 module.exports = configuration

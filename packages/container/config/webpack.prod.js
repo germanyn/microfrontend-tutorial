@@ -1,17 +1,27 @@
 const { merge } = require('webpack-merge')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const commonConfig = require('./webpack.common')
+const { ModuleFederationPlugin } = require('webpack').container
+const packageJson = require('../package.json')
+
+const domain = process.env.PRODUCTION_DOMAIN
 
 /**
  * @type {import('webpack').Configuration}
  */
-const devConfig = {
-    mode: 'development',
+const prodConfig = {
+    mode: 'production',
+    output: {
+        filename: '[name].[contenthash].js'
+    },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './plubic/index.html'
+        new ModuleFederationPlugin({
+            name: 'container',
+            remotes: {
+                'marketing': `marketing@${domain}/marketing/remoteEntry.js`,
+            },
+            shared: packageJson.dependencies,
         }),
     ],
 }
 
-module.exports = merge(commonConfig, devConfig)
+module.exports = merge(commonConfig, prodConfig)
