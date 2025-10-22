@@ -1,6 +1,6 @@
 # Microfrontend Tutorial
 
-This repo contains a ME tutorial using webpack module federation
+This repo contains a MF (MicroFrontend) tutorial using webpack module federation
 
 ## Install
 
@@ -15,3 +15,22 @@ npx lerna bootstrap
 ```sh
 npx lerna run start --stream
 ```
+
+## Structure
+
+This project contains a package folder, whose which folder inside is a different MF application.
+
+```
+packages/
+  auth/
+  container/
+  dashboard/
+  marketing/
+```
+
+### MFEs
+
+- Container: Host application using React.js
+- Auth: Remote application using React.js responsible for `/auth/*` routes
+- Marketing: Remote application using React.js responsible for `/pricing`
+- Dashboard: Remote application using Vue.js responsible for `/dashboard`
