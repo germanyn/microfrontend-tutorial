@@ -30,7 +30,7 @@ packages/
 
 ### MFEs
 
-- Container: Host application using React.js
-- Auth: Remote application using React.js responsible for `/auth/*` routes
-- Marketing: Remote application using React.js responsible for `/pricing`
-- Dashboard: Remote application using Vue.js responsible for `/dashboard`
+- Container: `Host` application using `React.js`
+- Auth: `Remote` application using `React.js` responsible for `/auth/login` and `/auth/signup` routes
+- Marketing: `Remote` application using `React.js` responsible for `/pricing`
+- Dashboard: `Remote` application using `Vue.js` responsible for `/dashboard`
